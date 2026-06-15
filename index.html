@@ -553,57 +553,281 @@
   .flex-center { display: flex; justify-content: center; }
   .mt-32 { margin-top: 32px; }
 
-  /* ══ RESPONSIVE ══ */
+  /* ══════════════════════════════════
+     RESPONSIVE — TABLET (≤ 768px)
+  ══════════════════════════════════ */
   @media (max-width: 768px) {
-    nav { padding: 0 20px; height: 58px; }
-    .page-hero { padding: 60px 24px 52px; }
-    .ai-features-grid { padding: 40px 20px; }
-    .clients-section { padding: 40px 20px; }
-    .explore-grid { padding: 40px 20px; }
-    .demo-banner { margin: 0 20px 48px; padding: 44px 28px; }
+    /* Nav */
+    nav { padding: 0 20px; height: 60px; }
+    .nav-logo { font-size: 1.3rem; }
+    .nav-tab { padding: 8px 16px; font-size: 0.82rem; }
+
+    /* Hero */
+    .hero { padding: 64px 28px 72px; }
+    .hero p { font-size: 1rem; }
+    /* Hide far-edge chips on tablet */
+    .hero-chip:nth-child(n+5) { display: none; }
+
+    /* Page heroes */
+    .page-hero { padding: 68px 28px 56px; }
+    .page-hero p { font-size: 1rem; }
+
+    /* Step flows */
+    .step-wrap { padding: 48px 24px 80px; }
+    .question-block { padding: 22px; }
+
+    /* Portrait */
+    .portrait-card { padding: 44px 24px; }
+
+    /* Tiles */
+    .tiles-grid { gap: 14px; }
+
+    /* Gift */
+    .gift-card { padding: 36px 24px; }
+    .coupon-code { font-size: 1.6rem; padding: 16px 28px; }
+
+    /* AI features */
+    .ai-features-grid { padding: 44px 24px; gap: 16px; }
+
+    /* Clients */
+    .clients-section { padding: 44px 24px; }
+    .industry-panel-inner { padding: 28px 22px; }
+    .panel-features { grid-template-columns: repeat(2, 1fr); }
+
+    /* Explore */
+    .explore-grid { padding: 44px 24px; gap: 16px; }
+    .demo-banner { margin: 0 24px 56px; padding: 48px 36px; }
   }
+
+  /* ══════════════════════════════════
+     RESPONSIVE — MOBILE (≤ 540px)
+  ══════════════════════════════════ */
   @media (max-width: 540px) {
-    nav { padding: 0 16px; height: auto; flex-direction: column; align-items: flex-start; padding-bottom: 0; }
-    .nav-logo { padding: 12px 0 10px; }
-    .nav-tabs { width: 100%; overflow-x: auto; gap: 4px; padding-bottom: 10px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+
+    /* ── Navigation ── */
+    nav {
+      height: auto;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0 16px;
+      gap: 0;
+    }
+    .nav-logo {
+      padding: 14px 0 10px;
+      font-size: 1.25rem;
+    }
+    .nav-tabs {
+      width: 100%;
+      overflow-x: auto;
+      gap: 6px;
+      padding-bottom: 12px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      padding-right: 16px;
+    }
     .nav-tabs::-webkit-scrollbar { display: none; }
-    .nav-tab { padding: 7px 14px; font-size: 0.78rem; flex-shrink: 0; }
-    .hero { padding: 48px 20px 60px; min-height: auto; }
-    .hero h1 { font-size: clamp(2rem, 9vw, 2.8rem); }
-    .hero p { font-size: 0.95rem; }
-    .btn-primary { padding: 14px 28px; font-size: 0.95rem; width: 100%; justify-content: center; }
-    .step-wrap { padding: 32px 16px 80px; }
-    .step h2 { font-size: 1.6rem; }
+    .nav-tab {
+      flex-shrink: 0;
+      padding: 8px 14px;
+      font-size: 0.78rem;
+      white-space: nowrap;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 52px 20px 64px;
+      min-height: 100svh;
+      min-height: 100vh;
+    }
+    .hero-orb-1 { width: 280px; height: 280px; }
+    .hero-orb-2 { width: 220px; height: 220px; }
+    .hero-orb-3 { width: 180px; height: 180px; }
+    /* Hide floating chips on mobile — too cluttered */
+    .hero-chips { display: none; }
+    .hero-pill { font-size: 0.72rem; padding: 7px 14px; margin-bottom: 22px; }
+    .hero h1 {
+      font-size: clamp(2.1rem, 10vw, 2.9rem);
+      line-height: 1.08;
+      margin-bottom: 18px;
+    }
+    .hero p {
+      font-size: 0.95rem;
+      margin-bottom: 32px;
+    }
+    .btn-primary {
+      width: 100%;
+      justify-content: center;
+      padding: 16px 24px;
+      font-size: 0.95rem;
+    }
+
+    /* ── Step wrapper ── */
+    .step-wrap {
+      padding: 32px 16px 72px;
+      max-width: 100% !important;
+    }
+    .step-badge { font-size: 0.68rem; padding: 6px 12px; }
+    .step h2 {
+      font-size: clamp(1.45rem, 6vw, 1.8rem);
+      line-height: 1.2;
+    }
+    .step p.sub { font-size: 0.9rem; }
     .step-header { margin-bottom: 24px; }
-    .options-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-    .option-btn { font-size: 0.82rem; padding: 12px 8px; }
-    .portrait-card { padding: 36px 20px; border-radius: 22px; }
-    .portrait-avatar { width: 110px; height: 110px; font-size: 3rem; }
-    .portrait-name { font-size: 1.6rem; }
-    .portrait-actions { flex-direction: column; gap: 10px; }
-    .portrait-actions .btn-outline { width: 100%; justify-content: center; }
-    .tiles-grid { grid-template-columns: 1fr; gap: 12px; }
-    .stats-row { flex-direction: column; align-items: stretch; gap: 10px; }
-    .stat-pill { justify-content: center; }
-    .gift-card { padding: 28px 18px; }
-    .coupon-code { font-size: 1.3rem; padding: 14px 20px; word-break: break-all; }
+    .progress-dots { margin-bottom: 28px; gap: 6px; }
+    .dot { width: 7px; height: 7px; }
+    .dot.active { width: 22px; }
+
+    /* ── Quiz ── */
+    .question-block { padding: 18px 16px; margin-bottom: 14px; border-radius: 16px; }
+    .question-label { font-size: 0.9rem; gap: 8px; }
+    .question-label .q-num { width: 24px; height: 24px; font-size: 0.7rem; }
+    .options-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+    .option-btn { font-size: 0.8rem; padding: 12px 8px; border-radius: 12px; }
+
+    /* ── Form ── */
+    .form-wrap { padding: 20px 16px; border-radius: 16px; }
+    .form-group label { font-size: 0.72rem; }
+    .form-group input { padding: 13px 14px; font-size: 0.9rem; border-radius: 10px; }
+    .consent-row { padding: 14px; border-radius: 10px; }
+    .consent-row label { font-size: 0.82rem; }
+
+    /* ── Portrait reveal ── */
+    .portrait-card {
+      padding: 36px 18px 32px;
+      border-radius: 20px;
+    }
+    .portrait-rings { display: none; }  /* hide rings on small screens */
+    .portrait-avatar {
+      width: 100px;
+      height: 100px;
+      font-size: 2.8rem;
+      margin-bottom: 16px;
+    }
+    .portrait-name { font-size: 1.55rem; margin-bottom: 6px; }
+    .portrait-tagline { font-size: 0.9rem; }
+    .portrait-credit { font-size: 0.68rem; }
+    .portrait-actions {
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 6px;
+    }
+    .portrait-actions .btn-outline {
+      width: 100%;
+      justify-content: center;
+      padding: 13px 20px;
+    }
+
+    /* ── AI Tiles (Step 5) ── */
+    .tiles-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .tile { padding: 20px; border-radius: 16px; }
+    .tile-icon { font-size: 1.8rem; margin-bottom: 8px; }
+    .tile h3 { font-size: 0.92rem; }
+    .tile ul li { font-size: 0.8rem; }
+
+    /* ── Stats ── */
+    .stats-row { flex-direction: column; gap: 10px; }
+    .stat-pill { justify-content: center; padding: 13px 20px; border-radius: 14px; }
+    .stat-pill strong { font-size: 1rem; }
+
+    /* ── Gift (Step 6) ── */
+    .gift-card { padding: 24px 16px; border-radius: 20px; }
+    .gift-icon { font-size: 2.8rem; margin-bottom: 12px; }
+    .gift-card h3 { font-size: 1.3rem; }
+    .gift-card p { font-size: 0.85rem; }
+    .coupon-code {
+      font-size: 1.2rem;
+      padding: 14px 16px;
+      letter-spacing: 0.06em;
+      word-break: break-all;
+      border-radius: 12px;
+    }
+    .verify-box { font-size: 0.78rem; padding: 14px 14px; word-break: break-word; }
+    #step-6 .btn-primary { width: 100%; justify-content: center; font-size: 0.9rem; }
+    #step-6 .btn-outline { width: 100%; justify-content: center; }
+
+    /* ── Page heroes (tabs 2–4) ── */
     .page-hero { padding: 48px 20px 44px; }
-    .page-hero h1 { font-size: clamp(1.7rem, 7vw, 2.4rem); }
-    .ai-features-grid { grid-template-columns: 1fr; padding: 32px 16px; gap: 14px; }
-    .clients-section { padding: 32px 16px; }
-    .industry-tab-btn { padding: 8px 14px; font-size: 0.8rem; }
-    .industry-panel-inner { padding: 20px 16px; }
-    .panel-features { grid-template-columns: 1fr; }
-    .cred-row { flex-direction: column; align-items: center; gap: 14px; }
-    .cred-card { min-width: unset; width: 100%; max-width: 320px; padding: 28px; }
-    .explore-grid { grid-template-columns: 1fr; padding: 28px 16px; }
-    .demo-banner { margin: 0 16px 40px; padding: 36px 20px; border-radius: 22px; }
+    .page-hero h1 { font-size: clamp(1.7rem, 7.5vw, 2.3rem); margin-bottom: 12px; }
+    .page-hero p { font-size: 0.9rem; }
+
+    /* ── AI @ iHits features ── */
+    .ai-features-grid {
+      grid-template-columns: 1fr;
+      padding: 28px 16px;
+      gap: 12px;
+    }
+    .feature-card { padding: 20px; border-radius: 16px; }
+    .feature-icon { width: 44px; height: 44px; font-size: 1.3rem; border-radius: 12px; margin-bottom: 14px; }
+    .feature-card h3 { font-size: 0.95rem; }
+    .feature-card p { font-size: 0.83rem; }
+
+    /* ── Our Clients ── */
+    .clients-section { padding: 32px 16px 40px; }
+    .clients-section h2 { font-size: 1.5rem; }
+    .clients-section .sub { font-size: 0.88rem; margin-bottom: 24px; }
+    .industry-tabs { gap: 8px; margin-bottom: 24px; }
+    .industry-tab-btn {
+      padding: 8px 13px;
+      font-size: 0.78rem;
+    }
+    .industry-tab-btn .itab-icon { font-size: 0.95rem; }
+    .industry-panel-inner { padding: 18px 14px; border-radius: 18px; margin-bottom: 24px; }
+    .industry-panel-header { gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+    .industry-panel-header .big-icon { width: 48px; height: 48px; font-size: 1.5rem; border-radius: 12px; }
+    .industry-panel-header h3 { font-size: 1.15rem; }
+    .industry-panel-header p { font-size: 0.8rem; }
+    .panel-features { grid-template-columns: 1fr; gap: 8px; }
+    .panel-feature { padding: 11px 13px; font-size: 0.8rem; border-radius: 10px; }
+    .cred-row { flex-direction: column; align-items: center; gap: 12px; }
+    .cred-card {
+      min-width: unset;
+      width: 100%;
+      max-width: 340px;
+      padding: 28px 20px;
+      border-radius: 20px;
+    }
+    .cred-card .num { font-size: 2.4rem; }
+    .cred-card .lbl { font-size: 0.85rem; }
+
+    /* ── Explore iHits ── */
+    .explore-grid {
+      grid-template-columns: 1fr;
+      padding: 28px 16px;
+      gap: 12px;
+    }
+    .explore-card { padding: 22px 18px; border-radius: 16px; }
+    .explore-card-icon { font-size: 1.7rem; margin-bottom: 10px; }
+    .explore-card h3 { font-size: 0.98rem; margin-bottom: 12px; }
+    .explore-card ul li { font-size: 0.83rem; padding: 7px 0; }
+    .demo-banner {
+      margin: 0 16px 40px;
+      padding: 36px 20px;
+      border-radius: 20px;
+    }
     .demo-banner h2 { font-size: 1.4rem; }
-    .btn-accent { width: 100%; justify-content: center; }
+    .demo-banner p { font-size: 0.9rem; margin-bottom: 24px; }
+    .btn-accent { width: 100%; justify-content: center; padding: 15px 24px; font-size: 0.95rem; }
   }
-  @media (max-width: 360px) {
+
+  /* ══════════════════════════════════
+     RESPONSIVE — TINY (≤ 380px)
+  ══════════════════════════════════ */
+  @media (max-width: 380px) {
+    .nav-tab { padding: 7px 11px; font-size: 0.72rem; }
+    .hero h1 { font-size: 1.95rem; }
     .options-grid { grid-template-columns: 1fr; }
-    .nav-tab { font-size: 0.72rem; padding: 6px 12px; }
+    .option-btn { padding: 13px 10px; font-size: 0.82rem; }
+    .coupon-code { font-size: 1.05rem; letter-spacing: 0.04em; }
+    .portrait-name { font-size: 1.35rem; }
+    .step-badge { font-size: 0.65rem; }
+    .industry-tab-btn { padding: 7px 11px; font-size: 0.74rem; }
+    .cred-card .num { font-size: 2rem; }
   }
 </style>
 </head>
