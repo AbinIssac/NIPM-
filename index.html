@@ -285,29 +285,31 @@
   /* ══ AI TILES ══ */
   .tiles-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 36px; }
   .tile {
-    border-radius: 20px; padding: 24px; transition: all 0.3s cubic-bezier(.34,1.2,.64,1);
+    border-radius: 20px; padding: 24px; transition: all 0.3s cubic-bezier(.34,1.2,.64,1), background 0.3s ease;
     position: relative; overflow: hidden; cursor: default;
-    border: 1px solid transparent;
+    border: 1.5px solid var(--border); background: #fff;
   }
-  .tile:nth-child(1) { background: linear-gradient(135deg, #fff 0%, #f0eeff 100%); }
-  .tile:nth-child(2) { background: linear-gradient(135deg, #fff 0%, #e8fdf6 100%); }
-  .tile:nth-child(3) { background: linear-gradient(135deg, #fff 0%, #fff3e8 100%); }
-  .tile:nth-child(4) { background: linear-gradient(135deg, #fff 0%, #fff0f6 100%); }
-  .tile::before {
-    content: ''; position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px;
-    border-radius: 21px; z-index: -1; opacity: 0; transition: opacity 0.3s;
+  .tile:nth-child(1) { background: #fff; --tile-accent: var(--brand); }
+  .tile:nth-child(2) { background: #fff; --tile-accent: var(--accent); }
+  .tile:nth-child(3) { background: #fff; --tile-accent: var(--accent2); }
+  .tile:nth-child(4) { background: #fff; --tile-accent: var(--accent4); }
+  .tile:hover {
+    background: var(--tile-accent);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+    border-color: var(--tile-accent);
   }
-  .tile:nth-child(1)::before { background: linear-gradient(135deg, var(--brand), var(--brand-light)); }
-  .tile:nth-child(2)::before { background: linear-gradient(135deg, var(--accent), #00b38a); }
-  .tile:nth-child(3)::before { background: linear-gradient(135deg, var(--accent2), #e05520); }
-  .tile:nth-child(4)::before { background: linear-gradient(135deg, var(--accent4), #d4006e); }
-  .tile:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 16px 48px rgba(0,0,0,0.12); }
-  .tile:hover::before { opacity: 1; }
+  .tile:hover h3 { color: #fff; }
+  .tile:hover .tile-ul-text { color: rgba(255,255,255,0.8); }
+  .tile:hover .tile-icon { animation: wiggle 0.5s ease; }
+  .tile ul li { transition: color 0.3s; }
   .tile-icon { font-size: 2.2rem; margin-bottom: 12px; display: block; }
-  .tile h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; margin-bottom: 10px; }
+  .tile h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; margin-bottom: 10px; transition: color 0.3s; }
   .tile ul { list-style: none; padding: 0; }
-  .tile ul li { font-size: 0.82rem; color: var(--mid); padding: 4px 0; padding-left: 16px; position: relative; line-height: 1.4; }
-  .tile ul li::before { content: '→'; position: absolute; left: 0; color: var(--brand); font-size: 0.7rem; }
+  .tile ul li { font-size: 0.82rem; color: var(--mid); padding: 4px 0; padding-left: 16px; position: relative; line-height: 1.4; transition: color 0.3s; }
+  .tile ul li::before { content: '→'; position: absolute; left: 0; color: var(--brand); font-size: 0.7rem; transition: color 0.3s; }
+  .tile:hover ul li { color: rgba(255,255,255,0.85); }
+  .tile:hover ul li::before { color: rgba(255,255,255,0.6); }
 
   /* ══ STATS ROW ══ */
   .stats-row { display: flex; gap: 14px; justify-content: center; margin-bottom: 36px; flex-wrap: wrap; }
@@ -1074,10 +1076,9 @@
       <div id="confetti-wrap" class="confetti-wrap"></div>
       <div class="step-header">
         <div class="step-badge">🎁 Surprise Gift Ready!</div>
-        <h2>Thank you for exploring AI with iHits 🙌</h2>
+        <h2>Thank you for exploring AI with iHits</h2>
       </div>
       <div class="gift-card">
-        <span class="gift-icon">🎁</span>
         <h3>Your Exclusive Coupon Code</h3>
         <p>Present this code at the iHits counter to collect your gift.</p>
         <div class="coupon-code" id="coupon-display">IHITS-AI-7842</div>
